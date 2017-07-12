@@ -1,7 +1,8 @@
-ReactJS Basics
+Caique Vallim Araujo
 
-This repository accompanies my ReactJS - Basics YouTube Series.
+Full Stack Developer
 
-Usage
+This repository accompanies my CV in ReactJS with Redux.
 
-Switch to the branch you're interested in (branches = different stages in the series) and compare/ download the source code.
+
+

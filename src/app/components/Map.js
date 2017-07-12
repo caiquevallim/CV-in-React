@@ -23,12 +23,10 @@ class Map extends React.Component{
         };
         let style = {width:'953px', heigth:'512px'};
         let mapDiv = document.getElementById('map');
-        //mapDiv.style.width = style.width;
+
         mapDiv.style.height = style.heigth;
         this.map = new google.maps.Map(mapDiv, mapConfig);
         this.infoWindow = new google.maps.InfoWindow();
-
-
     }
     setMapCenter(center){
         if(!this.map)
@@ -37,7 +35,6 @@ class Map extends React.Component{
     }
     loadMap(){
         this.loadMarkers();
-
     }
     loadMarkers(){
         let dateFormat = "DD-MM-YYYY";
@@ -49,20 +46,20 @@ class Map extends React.Component{
                     if(!elements)
                         return;
                     _(elements).forEach((element)=>{
-                        element.previousSibling.parentElement.style.backgroundColor="rgba(0,0,0,0.80)";
-                        element.previousSibling.parentElement.style.opacity="0.80";
+                        element.previousSibling.parentElement.style.opacity="0.95";
                     });
                 });
                 let contentString =
-                    `<div class="card card-md">
-                    <div class="card-header">
+                   `<div class="card card-md">
+                    <div class="card-header ">
                         <img className="img-responsive" src=${company.logo} alt=${company.name}/>
                     </div>
-                    <p><h4>Company: <small> ${company.name}</small></h4></p>
-                    <p><h4>Position: <small>${company.job.name}</small></h4></p>
-                    <p><h4>Start Date: <small>${company.job.startDate.format(dateFormat)}</small></h4></p>
-                    <p><h4>End Date: <small>${(company.job.isActive) ?`Current job`:`${company.job.endDate.format(dateFormat)}`}</small></h4></p>
-                    
+                    <div class="text-left">
+                        <p><h4 style="color: #6c6c6c">Company: <small> ${company.name}</small></h4></p>
+                        <p><h4 style="color: #6c6c6c">Position: <small>${company.job.name}</small></h4></p>
+                        <p><h4 style="color: #6c6c6c">Start Date: <small>${company.job.startDate.format(dateFormat)}</small></h4></p>
+                        <p><h4 style="color: #6c6c6c">End Date: <small>${(company.job.isActive) ? `Current job` : `${company.job.endDate.format(dateFormat)}`}</small></h4></p>
+                    </div>
                 </div>
                 `;
                 this.infoWindow.setContent(contentString);
@@ -86,10 +83,7 @@ class Map extends React.Component{
     }
     render(){
         return(
-            <div id="map">
-
-
-            </div>
+            <div id="map"></div>
         );
     }
 }
